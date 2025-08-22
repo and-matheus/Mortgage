@@ -11,12 +11,12 @@ public class Main {
         float GetTaxaJurosAnual =  Float.parseFloat(scanner.nextLine().trim());
         System.out.print("Periodo (Anos): ");
         double GetPeriodoAnos =  Double.parseDouble(scanner.nextLine().trim());
-        double TaxaJurosMensal = (double)(GetTaxaJurosAnual/100)/12;
-        double PeriodoMes = GetPeriodoAnos * 12;
+        double TaxaJurosMensal = (double)(GetTaxaJurosAnual/(byte)100)/(byte)12;
+        double PeriodoMes = GetPeriodoAnos * (byte)12;
         //double PrimeiroResultado = Math.pow((1 + TaxaJurosMensal), PeriodoMes);
         // double SegundoResultado = Math.pow((1 + TaxaJurosMensal), PeriodoMes);
         // double FinalResultado = (TaxaJurosMensal*PrimeiroResultado)/(SegundoResultado - 1);
-        double Mortgage = GetValorEmprestimo*(TaxaJurosMensal*(Math.pow((1 + TaxaJurosMensal), PeriodoMes))/((Math.pow((1 + TaxaJurosMensal), PeriodoMes)) - 1));
+        double Mortgage = GetValorEmprestimo*(TaxaJurosMensal*(Math.pow(((byte)1 + TaxaJurosMensal), PeriodoMes))/((Math.pow(((byte)1 + TaxaJurosMensal), PeriodoMes)) - (byte)1));
         String MortgageCurrency = NumberFormat.getCurrencyInstance().format(Mortgage);
         System.out.println("Mortgage: " + MortgageCurrency);
     }
